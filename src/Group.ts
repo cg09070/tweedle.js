@@ -46,12 +46,14 @@ export class Group implements IUpdateable {
 	}
 
 	/**
+	 * Charles G. modified: resumes if already paused.
+ 	 *
 	 * Pauses this group. If a group was already paused, this has no effect.
 	 * A paused group will skip updating all the asociated updateables.
 	 * _To control all updateables, use {@link Group.getAll} to get an array with all updateables._
 	 */
 	public pause(): void {
-		this._paused = true;
+		(this._paused) ? this._paused = true : this._paused = false;
 	}
 
 	/**
